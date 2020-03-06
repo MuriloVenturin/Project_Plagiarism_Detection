@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.externals import joblib
 
 ## TODO: Import any additional libraries you need to define a model
+from sklearn.svm import LinearSVC
 
 
 # Provided model load function
@@ -51,20 +52,14 @@ if __name__ == '__main__':
     train_y = train_data.iloc[:,0]
     train_x = train_data.iloc[:,1:]
     
-    
     ## --- Your code here --- ##
-    
 
     ## TODO: Define a model 
-    model = None
-    
-    
+    model = LinearSVC()
+
     ## TODO: Train the model
-    
-    
-    
+    model.fit(train_x, train_y)
     ## --- End of your code  --- ##
     
-
     # Save the trained model
     joblib.dump(model, os.path.join(args.model_dir, "model.joblib"))
